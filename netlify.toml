@@ -1,15 +1,11 @@
 [build]
-  command = "pip install -r requirements.txt"
-  publish = "."
+  command = "pip install -r requirements.txt && streamlit run app.py --server.port 8888 --server.enableCORS false --server.enableXsrfProtection false"
+  publish = "./"
 
 [build.environment]
-  PYTHON_VERSION = "3.12"
-
-# Pour un déploiement Streamlit spécifique
-[functions]
-  external_node_modules = true
+  PYTHON_VERSION = "3.11.16"
 
 [[redirects]]
   from = "/*"
-  to = "/index.html"
+  to = "/:splat"
   status = 200
